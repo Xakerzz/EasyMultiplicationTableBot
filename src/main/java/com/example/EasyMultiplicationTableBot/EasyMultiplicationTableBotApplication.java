@@ -1,6 +1,6 @@
 package com.example.EasyMultiplicationTableBot;
 
-import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -82,7 +82,13 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
         if (correctAnswer != null) {
             String responseText;
             if (userAnswer.equals(String.valueOf(correctAnswer))) {
+
                 responseText = "Правильно! Так держать! \uD83D\uDC4D";
+
+            } else if ("спонтанность".equalsIgnoreCase(userAnswer)) {
+
+               responseText = "Мариночка привет\uD83D\uDE18";
+
             } else {
                 responseText = "Неправильно. Правильный ответ: " + correctAnswer;
             }
