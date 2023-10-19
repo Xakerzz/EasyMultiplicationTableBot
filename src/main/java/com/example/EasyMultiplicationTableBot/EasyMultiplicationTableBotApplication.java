@@ -61,7 +61,7 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
 
                 } else if (messageText.equals("/table")) {
                     getPinMessage(chatId);
-                } else if ((messageText.contains("Умножаем на"))) {
+                } else if (messageText.contains("Умножаем на") || messageText.contains("умножаем на")) {
 
                     isChoose = true;
                     String[] userInput = messageText.trim().split(" ");
