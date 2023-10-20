@@ -4,6 +4,7 @@ package com.example.EasyMultiplicationTableBot;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.pinnedmessages.PinChatMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendAudio;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
@@ -26,7 +27,7 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
 
     private boolean isChoose = false;
 
-    final private String BOT_TOKEN ="6376884410:AAGlXB4bjoGzIvGtwXI9Nlv2MfEEs6vKDOI";//"6322941008:AAGv0H3XZ85-zdRWq2rZFIOUf2OSsPc0CnQ";
+    final private String BOT_TOKEN ="6322941008:AAGv0H3XZ85-zdRWq2rZFIOUf2OSsPc0CnQ";//"6376884410:AAGlXB4bjoGzIvGtwXI9Nlv2MfEEs6vKDOI"
     final private String BOT_NAME = "EasyMultiplicationTableBot";
 
 
@@ -178,6 +179,21 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
 
                 responseText = "Мариночка привет\uD83D\uDE18";
 
+            } else if ("мера".equalsIgnoreCase(userAnswer)) {
+                SendAudio sendAudio = new SendAudio();
+                sendAudio.setChatId(String.valueOf(chatId));
+
+                // Укажите аудиофайл в формате InputFile (путь к файлу)
+                InputFile audio = new InputFile("https://mp3uk.net/mp3/files/basta-kavabanga-mp3.mp3");
+                sendAudio.setAudio(audio);
+
+                try {
+                    // Отправьте аудиофайл
+                    execute(sendAudio);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                responseText = "Мариночка, песня по твоему заказу\uD83D\uDE01";
             } else {
                 responseText = String.format("Неправильно. Правильный ответ: %d \n" + "%s%s", correctAnswer, phrasesWrong[(int) (Math.random() * phrasesWrong.length)], emojiWrong[(int) (Math.random() * emojiWrong.length)]);
             }
