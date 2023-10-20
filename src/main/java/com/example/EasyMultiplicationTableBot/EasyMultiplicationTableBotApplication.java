@@ -26,7 +26,7 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
 
     private boolean isChoose = false;
 
-    final private String BOT_TOKEN ="6322941008:AAGv0H3XZ85-zdRWq2rZFIOUf2OSsPc0CnQ";//"6376884410:AAGlXB4bjoGzIvGtwXI9Nlv2MfEEs6vKDOI";
+    final private String BOT_TOKEN ="6376884410:AAGlXB4bjoGzIvGtwXI9Nlv2MfEEs6vKDOI";//"6322941008:AAGv0H3XZ85-zdRWq2rZFIOUf2OSsPc0CnQ";
     final private String BOT_NAME = "EasyMultiplicationTableBot";
 
 
@@ -56,6 +56,7 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
                             "1. Введите команду \"Умножаем на (укажите своё число от 1 до 10, без скобок)\".\n" +
                             "2. Введите команду \"Умножаем всё(е)\".");
                     execute(outMess);
+                    isChoose = false;
                     sendMultiplicationExample(chatId);
 
 
@@ -69,41 +70,52 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
                     switch (Integer.parseInt(userInput[2])) {
                         case 1:
                             tableNumb = 1;
+                            sendMultiplicationExample(chatId);
                             break;
                         case 2:
                             tableNumb = 2;
+                            sendMultiplicationExample(chatId);
                             break;
                         case 3:
                             tableNumb = 3;
+                            sendMultiplicationExample(chatId);
                             break;
                         case 4:
                             tableNumb = 4;
+                            sendMultiplicationExample(chatId);
                             break;
                         case 5:
                             tableNumb = 5;
+                            sendMultiplicationExample(chatId);
                             break;
                         case 6:
                             tableNumb = 6;
+                            sendMultiplicationExample(chatId);
                             break;
                         case 7:
                             tableNumb = 7;
+                            sendMultiplicationExample(chatId);
                             break;
                         case 8:
                             tableNumb = 8;
+                            sendMultiplicationExample(chatId);
                             break;
                         case 9:
                             tableNumb = 9;
+                            sendMultiplicationExample(chatId);
                             break;
                         case 10:
                             tableNumb = 10;
+                            sendMultiplicationExample(chatId);
                             break;
                         default:
                             isChoose = false;
                             outMess.setChatId(chatId);
                             outMess.setText("Твоё число не входит в рамки Таблицы умножения.\uD83D\uDE1D\n Допустимы числа от 1 до 10.\uD83D\uDE07 Повтори команду с числом от 1 до 10\uD83E\uDD1D");
-
+                            execute(outMess);
+                            break;
                     }
-                    sendMultiplicationExample(chatId);
+
 
                 } else if ("Умножаем всё".equalsIgnoreCase(messageText) || "Умножаем все".equalsIgnoreCase(messageText)) {
                     isChoose = false;
@@ -216,7 +228,7 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
                 "1. Введите команду \"Умножаем на (укажите своё число от 1 до 10, без скобок)\".\n" +
                 "2. Введите команду \"Умножаем всё(е)\".");
         execute(outMess);
-        sendMultiplicationExample(chatId);
+
     }
 
 }
