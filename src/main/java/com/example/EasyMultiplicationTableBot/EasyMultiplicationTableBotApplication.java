@@ -136,6 +136,9 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
                 chooseTableNumber(chatId, 9);
             } else if (callBackData.equals("10")) {
                 chooseTableNumber(chatId, 10);
+            } else if (callBackData.equals("11")) {
+                setChoose(false);
+                sendMultiplicationExample(chatId);
             }
 
 
@@ -380,7 +383,7 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
 
         InlineKeyboardButton inlineKeyboardButton = new InlineKeyboardButton();
         inlineKeyboardButton.setText("Умножать все числа ");
-        inlineKeyboardButton.setCallbackData(String.valueOf(10));
+        inlineKeyboardButton.setCallbackData(String.valueOf(11));
         row6.add(inlineKeyboardButton);
 
 
