@@ -39,7 +39,7 @@ public class EasyMultiplicationTableBotApplication extends TelegramLongPollingBo
     private boolean isChoose = false;
 
 
-    final private String BOT_TOKEN = "6322941008:AAGv0H3XZ85-zdRWq2rZFIOUf2OSsPc0CnQ"; // - это тестовый ключ "6376884410:AAGlXB4bjoGzIvGtwXI9Nlv2MfEEs6vKDOI";
+    final private String BOT_TOKEN = "6322941008:AAGv0H3XZ85-zdRWq2rZFIOUf2OSsPc0CnQ";
 
     final private String BOT_NAME = "EasyMultiplicationTableBot";
 
